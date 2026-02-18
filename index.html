@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AdsPro — YouTube & Google Ads</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --primary-bg:#0f172a;
+      --accent-blue:#38bdf8;
+      --accent-purple:#8b5cf6;
+      --glass-white:rgba(255,255,255,.85);
+      --glass-dark:rgba(15,23,42,.60);
+    }
+    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    body{background:#f8fafc;color:#0f172a;overflow-x:hidden;}
+
+    /* Hero */
+    .hero-bg{
+      background: radial-gradient(circle at top right, #1e293b, #0f172a);
+      position:relative;
+      padding-bottom:160px;
+      clip-path: ellipse(150% 100% at 50% 0%);
+    }
+    .hero-mesh{
+      position:absolute;inset:0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(56,189,248,.18) 0%, transparent 42%),
+        radial-gradient(circle at 80% 20%, rgba(139,92,246,.18) 0%, transparent 42%);
+      z-index:0;
+    }
+
+    /* Glass */
+    .glass-card{
+      background:var(--glass-white);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow: 0 18px 44px rgba(2,6,23,.08);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .glass-card:hover{transform: translateY(-6px); box-shadow: 0 24px 60px rgba(2,6,23,.12);}
+
+    .pricing-card-dark{
+      background:var(--glass-dark);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border:1px solid rgba(255,255,255,.10);
+      color:#fff;
+    }
+
+    .btn-gradient{background: linear-gradient(90deg, #2dd4bf, #3b82f6);}
+    .btn-gradient:hover{opacity:.92;}
+
+    .laptop-mockup{filter: drop-shadow(0 30px 60px rgba(0,0,0,.35));}
+
+ /* Section curves (TOP + BOTTOM) */
+.section-curves{
+  position: relative;
+  background: var(--section-bg, #ffffff);
+}
+
+.section-curves::before,
+.section-curves::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background: var(--section-bg, #ffffff);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top curve */
+.section-curves::before{
+  top: -110px;
+  clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+/* Bottom curve (THIS closes the section) */
+.section-curves::after{
+  bottom: -110px;
+  clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+
+    .pricing-header-starter{background: linear-gradient(135deg, #f59e0b, #ea580c);} /* orange */
+    .pricing-header-premium{background: linear-gradient(135deg, #06b6d4, #0284c7);} /* cyan/blue */
+    .pricing-header-pro{background: linear-gradient(135deg, #8b5cf6, #6366f1);} /* purple */
+
+    .checkmark{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:18px;height:18px;border-radius:999px;
+      background:#10b981;color:#fff;
+      font-size:10px;line-height:1;
+      margin-right:10px;flex:0 0 auto;
+    }
+
+    /* Subtle animated drift (optional) */
+    @media (prefers-reduced-motion: no-preference){
+      .floaty{animation: floaty 8s ease-in-out infinite;}
+      @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero-bg text-white relative">
+    <div class="hero-mesh"></div>
+
+    <!-- Nav -->
+    <nav class="relative z-10 max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-cyan-400/90 shadow-md"></div>
+        <span class="text-xl font-extrabold tracking-tight">AdsPro</span>
+      </div>
+      <div class="hidden md:flex items-center gap-9 text-sm font-medium text-white/85">
+        <a href="#features" class="hover:text-cyan-300 transition">Features</a>
+        <a href="#policy" class="hover:text-cyan-300 transition">Policy</a>
+        <a href="#pricing" class="hover:text-cyan-300 transition">Pricing</a>
+        <a href="#contact" class="hover:text-cyan-300 transition">Contact</a>
+      </div>
+    </nav>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 mt-10 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-[1.05] mb-6">
+          Boost Your YouTube Presence Today
+        </h1>
+        <p class="text-lg text-white/75 mb-10 max-w-lg leading-relaxed">
+          Real results, policy-compliant campaigns, and expert support to grow your audience and engagement effectively.
+        </p>
+        <button class="btn-gradient px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-[1.03] transition-transform">
+          Start Your Promotion
+        </button>
+
+        <div class="mt-12 grid grid-cols-2 gap-4 text-sm text-white/70">
+          <div class="flex items-center gap-2"><span class="text-cyan-300">●</span> Performance mapping included</div>
+          <div class="flex items-center gap-2"><span class="text-cyan-300">●</span> 24/7 Support</div>
+          <div class="flex items-center gap-2"><span class="text-cyan-300">●</span> Google Ads Partner</div>
+          <div class="flex items-center gap-2"><span class="text-cyan-300">●</span> Real-time Insights</div>
+        </div>
+      </div>
+
+      <!-- Mock laptop -->
+      <div class="flex justify-center">
+        <div class="laptop-mockup w-full max-w-xl floaty">
+          <svg viewBox="0 0 600 400" class="w-full h-auto">
+            <rect x="55" y="20" width="490" height="320" rx="14" fill="#ffffff" />
+            <rect x="67" y="33" width="466" height="294" rx="8" fill="#111827" />
+
+            <!-- faux video thumbnail -->
+            <defs>
+              <linearGradient id="thumb" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f59e0b" stop-opacity=".95"/>
+                <stop offset="1" stop-color="#fb7185" stop-opacity=".85"/>
+              </linearGradient>
+            </defs>
+            <rect x="92" y="72" width="290" height="165" rx="10" fill="url(#thumb)" />
+            <polygon points="214,155 214,120 250,138" fill="#ffffff" opacity=".92" />
+
+            <!-- right sidebar blocks -->
+            <rect x="405" y="85" width="112" height="18" rx="5" fill="#334155" />
+            <rect x="405" y="115" width="112" height="18" rx="5" fill="#334155" />
+            <rect x="405" y="145" width="112" height="18" rx="5" fill="#334155" />
+            <rect x="405" y="175" width="112" height="18" rx="5" fill="#334155" />
+
+            <circle cx="505" cy="52" r="14" fill="#f59e0b" />
+
+            <!-- base -->
+            <path d="M18,340 L582,340 L600,360 L0,360 Z" fill="#cbd5e1" />
+            <path d="M0,360 L600,360 L590,372 L10,372 Z" fill="#94a3b8" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOW IT WORKS -->
+  <section id="features" class="section-curve py-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-extrabold text-slate-900 mb-16">How It Works</h2>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="glass-card p-8 rounded-3xl text-left">
+          <div class="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Since 2018</h3>
+          <p class="text-sm text-slate-600">Years of experience promoting YouTube videos online.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl text-left">
+          <div class="w-12 h-12 bg-cyan-100 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Policy Compliant</h3>
+          <p class="text-sm text-slate-600">Campaigns that honor YouTube and Google Ads policies.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl text-left">
+          <div class="w-12 h-12 bg-sky-100 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Real Audience</h3>
+          <p class="text-sm text-slate-600">Reach authentic, engaged viewers in your niche.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl text-left">
+          <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Expert Support</h3>
+          <p class="text-sm text-slate-600">Safe to use and provides premium customer service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING (LIGHT) -->
+  <section id="pricing" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col items-center mb-12">
+        <div class="bg-white px-6 py-2 rounded-full shadow-sm flex items-center gap-2 mb-8">
+          <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm2 1a1 1 0 00-1 1v5a1 1 0 001 1h10a1 1 0 001-1V7a1 1 0 00-1-1H5z"/></svg>
+          <span class="text-sm font-semibold text-slate-700">Desktop Ads ▾</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Starter -->
+        <div class="glass-card rounded-[40px] overflow-hidden flex flex-col">
+          <div class="pricing-header-starter text-white text-center py-10">
+            <h4 class="text-2xl font-extrabold">Starter</h4>
+            <div class="text-4xl font-black mt-2">₹ 7,900</div>
+          </div>
+          <div class="p-10 flex-grow text-center">
+            <h5 class="font-bold text-slate-400 mb-6 tracking-wide">Starting with Basics</h5>
+            <ul class="space-y-4 text-left mb-10">
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Target real YouTube audiences</li>
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Campaign reporting provided</li>
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Safe & policy compliant</li>
+            </ul>
+            <button class="w-full bg-gradient-to-r from-emerald-400 to-teal-500 text-white font-extrabold py-4 rounded-2xl shadow-lg hover:shadow-xl transition">Get Started</button>
+          </div>
+        </div>
+
+        <!-- Premium -->
+        <div class="glass-card rounded-[40px] overflow-hidden flex flex-col md:scale-105 md:-translate-y-1 z-10">
+          <div class="pricing-header-premium text-white text-center py-10">
+            <h4 class="text-2xl font-extrabold">Premium</h4>
+            <div class="text-4xl font-black mt-2">₹ 11,500</div>
+          </div>
+          <div class="p-10 flex-grow text-center">
+            <h5 class="font-bold text-cyan-600 mb-6 tracking-wide">Ideal for New Creators</h5>
+            <ul class="space-y-4 text-left mb-10">
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Target real YouTube audiences</li>
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Campaign reporting provided</li>
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Safe & policy compliant</li>
+            </ul>
+            <button class="w-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-extrabold py-4 rounded-2xl shadow-lg hover:shadow-xl transition">Get Started</button>
+          </div>
+        </div>
+
+        <!-- Pro -->
+        <div class="glass-card rounded-[40px] overflow-hidden flex flex-col">
+          <div class="pricing-header-pro text-white text-center py-10">
+            <h4 class="text-2xl font-extrabold">Pro</h4>
+            <div class="text-4xl font-black mt-2">₹ 14,400</div>
+          </div>
+          <div class="p-10 flex-grow text-center">
+            <h5 class="font-bold text-indigo-600 mb-6 tracking-wide">Advanced Growth</h5>
+            <ul class="space-y-4 text-left mb-10">
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Target real YouTube audiences</li>
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Campaign reporting provided</li>
+              <li class="flex items-center text-sm text-slate-700"><span class="checkmark">✓</span> Safe & policy compliant</li>
+            </ul>
+            <button class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-extrabold py-4 rounded-2xl shadow-lg hover:shadow-xl transition">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING (DARK) -->
+  <section class="py-24 bg-[#0f172a] relative overflow-hidden" aria-label="Dark pricing table">
+    <div class="absolute inset-0 opacity-25">
+      <div class="absolute top-0 right-0 w-[520px] h-[520px] bg-indigo-500 rounded-full blur-[160px]"></div>
+      <div class="absolute bottom-0 left-0 w-[520px] h-[520px] bg-cyan-500 rounded-full blur-[160px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-16">Our Pricing Plans</h2>
+
+      <div class="grid md:grid-cols-3 gap-0 rounded-[40px] overflow-hidden shadow-2xl border border-white/10">
+        <div class="pricing-card-dark p-12 text-left border-b md:border-b-0 md:border-r border-white/10">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-orange-400 text-xl">🚀</span>
+            <h4 class="text-2xl font-extrabold">Starter</h4>
+          </div>
+          <div class="text-4xl font-extrabold mb-10">₹ 7,900</div>
+          <ul class="space-y-5 text-sm text-white/80 mb-12">
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Target real YouTube audiences</li>
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Campaign reporting provided</li>
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Safe & policy compliant</li>
+          </ul>
+          <button class="w-full bg-lime-500 text-white py-4 rounded-2xl font-extrabold hover:bg-lime-600 transition">Get Started</button>
+        </div>
+
+        <div class="pricing-card-dark p-12 text-left border-b md:border-b-0 md:border-r border-white/10 bg-white/[0.05]">
+          <div class="flex items-center gap-3 mb-6">
+            <h4 class="text-2xl font-extrabold">Premium</h4>
+          </div>
+          <div class="text-4xl font-extrabold mb-10">₹ 11,500</div>
+          <ul class="space-y-5 text-sm text-white/80 mb-12">
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Target real YouTube audiences</li>
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Campaign reporting provided</li>
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Safe & policy compliant</li>
+          </ul>
+          <button class="w-full bg-cyan-600 text-white py-4 rounded-2xl font-extrabold hover:bg-cyan-700 transition">Get Started</button>
+        </div>
+
+        <div class="pricing-card-dark p-12 text-left">
+          <div class="flex items-center gap-3 mb-6">
+            <h4 class="text-2xl font-extrabold">Pro</h4>
+          </div>
+          <div class="text-4xl font-extrabold mb-10">₹ 14,400</div>
+          <ul class="space-y-5 text-sm text-white/80 mb-12">
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Target real YouTube audiences</li>
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Campaign reporting provided</li>
+            <li class="flex items-center"><span class="checkmark bg-emerald-500/50">✓</span> Safe & policy compliant</li>
+          </ul>
+          <button class="w-full bg-indigo-500 text-white py-4 rounded-2xl font-extrabold hover:bg-indigo-600 transition">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+ <section id="contact"
+  class="section-curves py-20"
+  style="--section-bg:#f8fafc">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-extrabold text-slate-900 mb-12">Get In Touch</h2>
+
+      <div class="glass-card max-w-4xl mx-auto p-12 rounded-[40px]">
+        <div class="grid md:grid-cols-2 gap-12 text-left">
+          <div>
+            <p class="text-slate-600 mb-6">
+              Need help with YouTube promotion? Reach out to our team of experts for a custom strategy.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <span class="text-blue-600 font-extrabold">@</span>
+                <span class="text-slate-700">support@AdsPro.com</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-600 mb-2" for="email">Your Email</label>
+            <input id="email" type="email" placeholder="name@company.com" class="w-full mb-4 px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <button class="w-full btn-gradient text-white font-extrabold py-4 rounded-2xl shadow-lg">Contact Us</button>
+            <p class="text-xs text-slate-500 mt-3">We’ll reply within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white py-12 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
+      <div class="flex items-center gap-2 mb-4 md:mb-0">
+        <div class="w-6 h-6 bg-cyan-400 rounded-md"></div>
+        <span class="font-extrabold text-slate-800">AdsPro</span>
+      </div>
+      <p>© 2026 AdsPro Solutions. All rights reserved.</p>
+      <div class="flex gap-6 mt-4 md:mt-0">
+        <a class="hover:text-slate-600" href="#">Privacy Policy</a>
+        <a class="hover:text-slate-600" href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal for cards
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100');
+            entry.target.classList.remove('translate-y-6');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.glass-card').forEach((el) => {
+        el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700');
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
